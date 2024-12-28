@@ -7,6 +7,7 @@
 - Node.js v16.20.2
 - npm or Yarn
 - Git
+- Rbenv
 - Ruby v2.7.6
 - CocoaPods (for iOS)
 
