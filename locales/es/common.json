@@ -1,0 +1,5 @@
+{
+    "FORM_VALIDATION_FIELD_REQUIRED": "Este campo es obligatorio.",
+    "FORM_VALIDATION_FIELD_FORMAT_EMAIL": "El formato del email es inválido.",
+    "FORM_VALIDATION_FIELD_PASSWORDS_DO_NOT_MATCH": "Las contraseñas no coinciden."
+}

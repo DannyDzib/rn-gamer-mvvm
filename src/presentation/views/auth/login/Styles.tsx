@@ -2,6 +2,7 @@ import { StyleSheet } from 'react-native';
 import { MyColors } from '@presentation/theme/AppTheme';
 
 const LoginStyles = StyleSheet.create({
+    scrollView: { flexGrow: 1 },
     container: {
         flex: 1,
         backgroundColor: MyColors.background,
@@ -16,10 +17,12 @@ const LoginStyles = StyleSheet.create({
         top: 320,
     },
     title: {
+        width: 125,
         fontSize: 30,
         marginLeft: 20,
         color: MyColors.background,
     },
+    formContainer: { flex: 1, paddingTop: 75, justifyContent: 'space-around' },
     image: {
         height: 230,
         width: 230,

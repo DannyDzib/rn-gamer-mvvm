@@ -1,83 +1,95 @@
 {
-  "name": "RNGamerMVVM",
-  "version": "0.0.1",
-  "private": true,
-  "scripts": {
-    "android": "react-native run-android",
-    "ios": "react-native run-ios",
-    "start": "react-native start",
-    "test": "jest",
-    "lint": "eslint . --fix",
-    "prepare": "husky install"
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "prettier --write",
-      "eslint --fix"
-    ]
-  },
-  "config": {
-    "commitizen": {
-      "path": "cz-conventional-changelog"
+    "name": "RNGamerMVVM",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+        "android": "react-native run-android",
+        "ios": "react-native run-ios",
+        "start": "react-native start",
+        "test": "jest",
+        "lint": "eslint src",
+        "lint:fix": "eslint src --fix",
+        "prepare": "husky install"
+    },
+    "lint-staged": {
+        "*.{js,jsx,ts,tsx}": [
+            "prettier --write",
+            "eslint --fix"
+        ]
+    },
+    "config": {
+        "commitizen": {
+            "path": "cz-conventional-changelog"
+        }
+    },
+    "dependencies": {
+        "@hookform/resolvers": "2.8.0",
+        "@react-navigation/native": "^6.1.7",
+        "@react-navigation/native-stack": "^6.9.13",
+        "@react-navigation/stack": "^6.3.17",
+        "@types/i18next": "^13.0.0",
+        "awilix": "^8.0.1",
+        "i18next": "^24.2.0",
+        "i18next-http-backend": "^3.0.1",
+        "i18next-localstorage-backend": "^4.2.0",
+        "react": "18.1.0",
+        "react-hook-form": "7.48.0",
+        "react-i18next": "^15.2.0",
+        "react-native": "0.70.10",
+        "react-native-fs": "^2.20.0",
+        "react-native-localize": "2.2.4",
+        "react-native-safe-area-context": "^4.7.2",
+        "react-native-screens": "3.25.0",
+        "react-native-svg": "^13.13.0",
+        "zod": "^3.24.1"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.22.17",
+        "@babel/eslint-parser": "^7.22.15",
+        "@babel/runtime": "^7.12.5",
+        "@commitlint/cli": "^17.7.1",
+        "@commitlint/config-conventional": "^17.7.0",
+        "@tsconfig/react-native": "^2.0.2",
+        "@types/jest": "^26.0.23",
+        "@types/react": "^19.0.2",
+        "@types/react-native": "^0.70.6",
+        "@types/react-native-fs": "^2.13.0",
+        "@types/react-test-renderer": "19.0.0",
+        "@typescript-eslint/eslint-plugin": "^6.7.0",
+        "@typescript-eslint/parser": "^6.7.0",
+        "babel-jest": "^26.6.3",
+        "babel-plugin-module-resolver": "^5.0.0",
+        "commitizen": "^4.3.0",
+        "cz-conventional-changelog": "^3.3.0",
+        "eslint": "^8.0.1",
+        "eslint-config-prettier": "^9.0.0",
+        "eslint-config-standard-with-typescript": "^39.0.0",
+        "eslint-import-resolver-typescript": "^3.6.0",
+        "eslint-plugin-import": "^2.28.1",
+        "eslint-plugin-jsx-a11y": "^6.7.1",
+        "eslint-plugin-n": "^16.1.0",
+        "eslint-plugin-prettier": "^5.0.0",
+        "eslint-plugin-promise": "^6.1.1",
+        "eslint-plugin-react": "^7.33.2",
+        "eslint-plugin-react-hooks": "^4.6.0",
+        "eslint-plugin-react-native": "^4.1.0",
+        "husky": "^8.0.3",
+        "jest": "^26.6.3",
+        "lint-staged": "^14.0.1",
+        "metro-react-native-babel-preset": "0.72.3",
+        "prettier": "^3.0.3",
+        "react-test-renderer": "18.1.0",
+        "typescript": "*"
+    },
+    "jest": {
+        "preset": "react-native",
+        "moduleFileExtensions": [
+            "ts",
+            "tsx",
+            "js",
+            "jsx",
+            "json",
+            "node"
+        ]
     }
-  },
-  "dependencies": {
-    "@react-navigation/native": "^6.1.7",
-    "@react-navigation/native-stack": "^6.9.13",
-    "@react-navigation/stack": "^6.3.17",
-    "awilix": "^8.0.1",
-    "react": "18.1.0",
-    "react-native": "0.70.10",
-    "react-native-safe-area-context": "^4.7.2",
-    "react-native-screens": "^3.25.0",
-    "react-native-svg": "^13.13.0"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.22.17",
-    "@babel/eslint-parser": "^7.22.15",
-    "@babel/runtime": "^7.12.5",
-    "@commitlint/cli": "^17.7.1",
-    "@commitlint/config-conventional": "^17.7.0",
-    "@tsconfig/react-native": "^2.0.2",
-    "@types/jest": "^26.0.23",
-    "@types/react": "^18.0.21",
-    "@types/react-native": "^0.70.6",
-    "@types/react-test-renderer": "^18.0.0",
-    "@typescript-eslint/eslint-plugin": "^6.7.0",
-    "@typescript-eslint/parser": "^6.7.0",
-    "babel-jest": "^26.6.3",
-    "babel-plugin-module-resolver": "^5.0.0",
-    "commitizen": "^4.3.0",
-    "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^8.0.1",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-config-standard-with-typescript": "^39.0.0",
-    "eslint-import-resolver-typescript": "^3.6.0",
-    "eslint-plugin-import": "^2.28.1",
-    "eslint-plugin-jsx-a11y": "^6.7.1",
-    "eslint-plugin-n": "^16.1.0",
-    "eslint-plugin-prettier": "^5.0.0",
-    "eslint-plugin-promise": "^6.1.1",
-    "eslint-plugin-react": "^7.33.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-native": "^4.1.0",
-    "husky": "^8.0.3",
-    "jest": "^26.6.3",
-    "lint-staged": "^14.0.1",
-    "metro-react-native-babel-preset": "0.72.3",
-    "prettier": "^3.0.3",
-    "react-test-renderer": "18.1.0",
-    "typescript": "*"
-  },
-  "jest": {
-    "preset": "react-native",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json",
-      "node"
-    ]
-  }
 }

@@ -4,9 +4,11 @@ import { MyColors } from '@src/presentation/theme/AppTheme';
 const styles = StyleSheet.create({
     // eslint-disable-next-line react-native/no-color-literals
     textButton: {
-        color: '#000',
+        width: '40%',
+        color: MyColors.secondaryText,
         fontSize: 19,
         marginLeft: 20,
+        textAlign: 'right',
     },
     button: {
         backgroundColor: MyColors.primary,
@@ -18,9 +20,13 @@ const styles = StyleSheet.create({
         borderRadius: 25,
         flexDirection: 'row',
     },
+    content: {
+        flexDirection: 'row',
+    },
     buttonIcon: {
         height: 30,
         width: 30,
+        marginLeft: 30,
     },
 });
 

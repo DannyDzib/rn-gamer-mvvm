@@ -11,7 +11,7 @@ export interface RootStackParamList extends Record<string, object | undefined> {
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-export function MainStackNavigatior() {
+export function MainStackNavigator() {
     return (
         <Stack.Navigator
             screenOptions={{

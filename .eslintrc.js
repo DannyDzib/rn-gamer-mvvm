@@ -14,6 +14,7 @@ module.exports = {
     },
     extends: [
         'plugin:react/recommended',
+        'plugin:react-hooks/recommended',
         'standard-with-typescript',
         'standard',
         'eslint:recommended',
@@ -32,6 +33,7 @@ module.exports = {
     },
     plugins: ['react', '@typescript-eslint', 'react-native', 'prettier'],
     rules: {
+        'react/react-in-jsx-scope': 'off',
         'react/jsx-filename-extension': [
             'error',
             { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
@@ -41,7 +43,7 @@ module.exports = {
             { functions: true, classes: true, variables: false },
         ],
         'react-native/no-unused-styles': 'error',
-        'react-native/split-platform-components': 'error',
+        'react-native/split-platform-components': 'off',
         'react-native/no-inline-styles': 'error',
         'react-native/no-color-literals': 'error',
         'react-native/no-raw-text': 'error',

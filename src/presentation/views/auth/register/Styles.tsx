@@ -2,6 +2,7 @@ import { StyleSheet } from 'react-native';
 import { MyColors } from '@presentation/theme/AppTheme';
 
 const RegisterStyles = StyleSheet.create({
+    scrollView: { flexGrow: 1 },
     container: {
         flex: 1,
         backgroundColor: MyColors.background,
@@ -15,7 +16,13 @@ const RegisterStyles = StyleSheet.create({
         position: 'absolute',
         top: 178,
     },
+    formContainer: {
+        flex: 1,
+        paddingTop: 45,
+        justifyContent: 'space-around',
+    },
     title: {
+        width: 145,
         fontSize: 25,
         marginLeft: 55,
         color: MyColors.background,
