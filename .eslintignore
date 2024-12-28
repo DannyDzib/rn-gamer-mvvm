@@ -4,3 +4,4 @@ __test__
 ios/
 android/
 *.config.js
+locales/

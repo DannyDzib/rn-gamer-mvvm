@@ -1,0 +1,8 @@
+{
+    "FORM_BANNER_TITLE": "REGISTRATE EN LA APP",
+    "FORM_PLACEHOLDER_USER_NAME": "Nombre de usuario",
+    "FORM_PLACEHOLDER_EMAIL": "Correo electronico",
+    "FORM_PLACEHOLDER_PASSWORD": "Contraseña",
+    "FORM_PLACEHOLDER_CONFIRM_PASSWORD": "Confirmar contraseña",
+    "FORM_BUTTON_REGISTER": "REGISTRATE"
+}

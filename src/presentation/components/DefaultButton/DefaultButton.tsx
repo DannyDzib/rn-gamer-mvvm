@@ -1,24 +1,29 @@
-/* eslint-disable react/require-default-props */
-import React, { type FC } from 'react';
-import { TouchableOpacity, Image, Text, View } from 'react-native';
+import { type FC, type ReactElement } from 'react';
+import { TouchableOpacity, Image, Text } from 'react-native';
+import ArrowRightIcon from '@assets/img/right-arrow.png';
 import styles from './Styles';
 
 interface Props {
     text: string;
+    disabled?: boolean;
     onPress: () => void;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    image?: any;
+    image?: unknown;
 }
 const DefaultButton: FC<Props> = ({
     text,
+    disabled = false,
     onPress,
-    image = require('@assets/img/right-arrow.png'),
-}): JSX.Element => {
+    image,
+}): ReactElement => {
+    const icon = image ?? ArrowRightIcon;
     return (
-        <TouchableOpacity style={styles.button} onPress={onPress}>
-            <View />
+        <TouchableOpacity
+            disabled={disabled}
+            style={styles.button}
+            onPress={onPress}
+        >
             <Text style={styles.textButton}>{text}</Text>
-            <Image source={image} style={styles.buttonIcon} />
+            <Image source={icon} style={styles.buttonIcon} />
         </TouchableOpacity>
     );
 };

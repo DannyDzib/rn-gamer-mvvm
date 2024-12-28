@@ -1,56 +1,37 @@
-import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { z } from 'zod';
 
-interface valuesTypes {
+interface IFormInputs {
     email: string;
     password: string;
 }
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-const LoginViewModel = () => {
-    const [error, setError] = useState<string>('');
-    const [values, setValues] = useState<valuesTypes>({
-        email: '',
-        password: '',
+
+const LoginViewModel = (): unknown => {
+    const { t } = useTranslation('common');
+    const schema = z.object({
+        email: z
+            .string()
+            .min(1, t('FORM_VALIDATION_FIELD_REQUIRED'))
+            .email(t('FORM_VALIDATION_FIELD_FORMAT_EMAIL')),
+        password: z.string().min(1, t('FORM_VALIDATION_FIELD_REQUIRED')),
     });
 
-    const onChange = (property: string, value: string): void => {
-        setValues({ ...values, [property]: value });
-    };
+    const { handleSubmit, control } = useForm<IFormInputs>({
+        defaultValues: { email: '', password: '' },
+        resolver: zodResolver(schema),
+        mode: 'onChange',
+    });
 
-    const isValidForm = (): boolean => {
-        // eslint-disable-next-line no-useless-escape
-        const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-        if (values.email === '') {
-            setError('El correo no puede estar vacio');
-            return false;
-        }
-        if (!reg.test(values.email)) {
-            setError('Debes ingresar un email valido');
-            return false;
-        }
-        if (values.password === '') {
-            setError('La contraseña no puede estar vacio');
-            return false;
-        }
-        if (values.password.length < 6) {
-            setError('La contraseña debe tener al menos 6 caracteres');
-            return false;
-        }
-        return true;
-    };
-    const login = (): void => {
-        if (isValidForm()) {
-            // console.log('El formulario es valido');
-            // console.log('Email', values.email);
-            // console.log('Password', values.password);
-        }
+    const onLogin = (): void => {
+        console.log('Desde el submit');
     };
 
     return {
-        ...values,
-        onChange,
-        login,
-        error,
-        setError,
+        control,
+        onLogin,
+        handleSubmit,
     };
 };
 
