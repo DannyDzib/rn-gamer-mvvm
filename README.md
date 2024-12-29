@@ -1,4 +1,4 @@
-# rn-gamer-mvvm
+# Documentation
 
 ## Installation
 
