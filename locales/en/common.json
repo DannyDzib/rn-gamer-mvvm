@@ -1,5 +1,15 @@
 {
     "FORM_VALIDATION_FIELD_REQUIRED": "This field is required",
     "FORM_VALIDATION_FIELD_FORMAT_EMAIL": "The email format is invalid.",
-    "FORM_VALIDATION_FIELD_PASSWORDS_DO_NOT_MATCH": "Passwords don't match."
+    "FORM_VALIDATION_FIELD_PASSWORDS_DO_NOT_MATCH": "Passwords don't match.",
+
+    "LOGIN_SUCCESS_TITLE_TEXT": "Welcome!",
+    "LOGIN_SUCCESS_SUBTITLE_TEXT": "Successful login",
+    "LOGIN_ERR_TITLE_TEXT": "Try again",
+    "LOGIN_ERR_SUBTITLE_TEXT": "User or password incorrect",
+
+    "REGISTER_SUCCESS_TITLE_TEXT": "Successful registration",
+    "REGISTER_SUCCESS_SUBTITLE_TEXT": "Your account has been created successfully.",
+    "REGISTER_ERR_TITLE_TEXT": "Registration error",
+    "REGISTER_ERR_SUBTITLE_TEXT": "Could not create the account. Please try again."
 }

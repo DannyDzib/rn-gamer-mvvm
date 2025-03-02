@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     },
     textError: {
         marginTop: 5,
-        color: MyColors.fieldError,
+        color: MyColors.error,
         fontWeight: 'bold',
     },
 });

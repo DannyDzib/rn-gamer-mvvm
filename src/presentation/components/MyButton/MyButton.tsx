@@ -17,11 +17,7 @@ const MyButton: FC<Props> = ({
     buttonStyle,
 }): ReactNode => {
     return (
-        <TouchableOpacity
-            disabled={disabled}
-            style={buttonStyle}
-            onPress={onPress}
-        >
+        <TouchableOpacity disabled={disabled} style={buttonStyle} onPress={onPress}>
             <Text style={titleStyle}>{title}</Text>
         </TouchableOpacity>
     );
