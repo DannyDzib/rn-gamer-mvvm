@@ -1,5 +1,15 @@
 {
     "FORM_VALIDATION_FIELD_REQUIRED": "Este campo es obligatorio.",
     "FORM_VALIDATION_FIELD_FORMAT_EMAIL": "El formato del email es inválido.",
-    "FORM_VALIDATION_FIELD_PASSWORDS_DO_NOT_MATCH": "Las contraseñas no coinciden."
+    "FORM_VALIDATION_FIELD_PASSWORDS_DO_NOT_MATCH": "Las contraseñas no coinciden.",
+
+    "LOGIN_SUCCESS_TITLE_TEXT": "Bienvenido!",
+    "LOGIN_SUCCESS_SUBTITLE_TEXT": "Inicio de sesión exitoso",
+    "LOGIN_ERR_TITLE_TEXT": "Intentalo de nuevo",
+    "LOGIN_ERR_SUBTITLE_TEXT": "Usuario o contraseña incorrecto",
+
+    "REGISTER_SUCCESS_TITLE_TEXT": "Registro exitoso",
+    "REGISTER_SUCCESS_SUBTITLE_TEXT": "Tu cuenta ha sido creada correctamente.",
+    "REGISTER_ERR_TITLE_TEXT": "Error en el registro",
+    "REGISTER_ERR_SUBTITLE_TEXT": "No se pudo crear la cuenta. Inténtalo de nuevo."
 }

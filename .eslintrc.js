@@ -48,5 +48,10 @@ module.exports = {
         'react-native/no-color-literals': 'error',
         'react-native/no-raw-text': 'error',
         'react-native/no-single-element-style-arrays': 'error',
+        'no-useless-constructor': 'off',
+        '@typescript-eslint/no-useless-constructor': 'off',
+        '@typescript-eslint/no-extraneous-class': 'off',
+        '@typescript-eslint/strict-boolean-expressions': 'off',
+        '@typescript-eslint/explicit-function-return-type': 'off',
     },
 };

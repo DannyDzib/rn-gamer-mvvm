@@ -12,13 +12,11 @@ import PasswordIcon from '@assets/img/password.png';
 import { useTranslation } from 'react-i18next';
 import styles from './Styles';
 
-interface Props
-    extends StackScreenProps<RootStackParamList, 'RegisterScreen'> {}
+interface Props extends StackScreenProps<RootStackParamList, 'RegisterScreen'> {}
 
 const Register: FC<Props> = ({ navigation }: Props): ReactElement => {
     const { t } = useTranslation('register');
-    const { control, handleSubmit, onRegister } =
-        DI.resolve('RegisterViewModel');
+    const { control, handleSubmit } = DI.resolve('RegisterViewModel');
 
     return (
         <ScrollView contentContainerStyle={styles.scrollView}>
@@ -59,7 +57,7 @@ const Register: FC<Props> = ({ navigation }: Props): ReactElement => {
                 </View>
                 <DefaultButton
                     text={t('FORM_BUTTON_REGISTER')}
-                    onPress={handleSubmit(onRegister)}
+                    onPress={handleSubmit}
                 />
             </View>
         </ScrollView>

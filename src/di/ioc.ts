@@ -1,12 +1,14 @@
-import { asFunction, createContainer } from 'awilix';
-import LoginViewModel from '@presentation/views/auth/login/ViewModel';
-import RegisterViewModel from '../presentation/views/auth/register/ViewModel';
+import { type AwilixContainer, createContainer } from 'awilix';
+import { registerViewModels } from './viewModels.container';
+import { registerDataSources } from './dataSources.container';
+import { registerRepositories } from './repositories.container';
+import { registerUseCases } from './useCases.container';
 
-const container = createContainer();
+const container: AwilixContainer = createContainer();
 
-container.register({
-    LoginViewModel: asFunction(LoginViewModel),
-    RegisterViewModel: asFunction(RegisterViewModel),
-});
+registerViewModels(container);
+registerDataSources(container);
+registerRepositories(container);
+registerUseCases(container);
 
 export default container;

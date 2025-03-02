@@ -80,9 +80,7 @@ const ControlledTextInput = <T extends FieldValues>({
                             )}
                         </View>
                         {error?.message != null && (
-                            <Text style={styles.textError}>
-                                {error?.message}
-                            </Text>
+                            <Text style={styles.textError}>{error?.message}</Text>
                         )}
                     </View>
                 </View>

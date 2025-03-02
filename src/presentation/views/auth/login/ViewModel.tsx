@@ -1,15 +1,20 @@
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { type ILoginUseCase } from '@application/useCases/auth/types';
 import { z } from 'zod';
-import auth from '@react-native-firebase/auth';
+import toast from 'react-native-toast-message';
 
 interface IFormInputs {
     email: string;
     password: string;
 }
 
-const LoginViewModel = (): unknown => {
+interface Props {
+    LoginUseCase: ILoginUseCase;
+}
+
+const LoginViewModel = ({ LoginUseCase }: Props) => {
     const { t } = useTranslation('common');
     const schema = z.object({
         email: z
@@ -20,37 +25,34 @@ const LoginViewModel = (): unknown => {
     });
 
     const { handleSubmit, control, getValues } = useForm<IFormInputs>({
-        defaultValues: { email: '', password: '' },
+        defaultValues: {
+            email: '',
+            password: '',
+        },
         resolver: zodResolver(schema),
-        mode: 'onChange',
+        mode: 'onBlur',
     });
 
-    const onLogin = (): void => {
+    const onLogin = async (): Promise<void> => {
         const { email, password } = getValues();
-        console.log('=========>', email);
-        console.log('=========>', password);
-        auth()
-            .signInWithEmailAndPassword(email, password)
-            .then(() => {
-                console.log('User account created & signed in!');
-            })
-            .catch(error => {
-                if (error.code === 'auth/email-already-in-use') {
-                    console.log('That email address is already in use!');
-                }
+        const data = await LoginUseCase.run(email, password);
 
-                if (error.code === 'auth/invalid-email') {
-                    console.log('That email address is invalid!');
-                }
-
-                console.error(error);
-            });
+        const isSuccess = !data?.error;
+        const toastConfig = {
+            type: isSuccess ? 'success' : 'error',
+            text1: isSuccess
+                ? t('LOGIN_SUCCESS_TITLE_TEXT')
+                : t('LOGIN_ERR_TITLE_TEXT'),
+            text2: isSuccess
+                ? t('LOGIN_SUCCESS_SUBTITLE_TEXT')
+                : t('LOGIN_ERR_SUBTITLE_TEXT'),
+        };
+        toast.show(toastConfig);
     };
 
     return {
         control,
-        onLogin,
-        handleSubmit,
+        handleSubmit: handleSubmit(onLogin),
     };
 };
 

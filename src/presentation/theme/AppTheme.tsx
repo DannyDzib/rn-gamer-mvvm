@@ -6,5 +6,7 @@ export const MyColors = {
     inactive: '#B0B0B0',
     primaryText: '#fff',
     secondaryText: '#000',
-    fieldError: '#FF6B6B',
+    error: '#FF6B6B',
+    success: '#BEF775',
+    backgroundLight: '#000',
 };

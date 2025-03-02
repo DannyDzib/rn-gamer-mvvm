@@ -1,5 +1,4 @@
-/* eslint-disable import/no-cycle */
-import React from 'react';
+import React, { type ReactElement } from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Login, Register } from '@presentation/views/auth';
 
@@ -10,8 +9,7 @@ export interface RootStackParamList extends Record<string, object | undefined> {
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-export function MainStackNavigator() {
+export function MainStackNavigator(): ReactElement {
     return (
         <Stack.Navigator
             screenOptions={{

@@ -17,7 +17,7 @@ interface Props extends StackScreenProps<RootStackParamList, 'LoginScreen'> {}
 const Login = ({ navigation }: Props): ReactElement => {
     const { t } = useTranslation('login');
 
-    const { control, handleSubmit, onLogin } = DI.resolve('LoginViewModel');
+    const { control, handleSubmit } = DI.resolve('LoginViewModel');
 
     return (
         <ScrollView contentContainerStyle={styles.scrollView}>
@@ -40,7 +40,7 @@ const Login = ({ navigation }: Props): ReactElement => {
                 </View>
                 <DefaultButton
                     text={t('FORM_BUTTON_LOGIN')}
-                    onPress={handleSubmit(onLogin)}
+                    onPress={handleSubmit}
                 />
                 <MyButton
                     title={t('FORM_BUTTON_REGISTER').toUpperCase()}
