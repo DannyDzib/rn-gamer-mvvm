@@ -9,4 +9,5 @@ export const MyColors = {
     error: '#FF6B6B',
     success: '#BEF775',
     backgroundLight: '#000',
+    backgroundBlack: '#000',
 };

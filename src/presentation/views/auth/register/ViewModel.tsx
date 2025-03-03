@@ -1,8 +1,9 @@
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
 import { type IRegisterUseCase } from '@application/useCases/auth/types';
+import { useLoading } from '@presentation/components/Loading/LoadingContext';
+import { z } from 'zod';
 import toast from 'react-native-toast-message';
 
 interface IFormInputs {
@@ -17,6 +18,7 @@ interface Props {
 }
 const RegisterViewModel = ({ RegisterUseCase }: Props) => {
     const { t } = useTranslation('common');
+    const { showLoading, hideLoading } = useLoading();
 
     const schema = z
         .object({
@@ -53,6 +55,7 @@ const RegisterViewModel = ({ RegisterUseCase }: Props) => {
     });
 
     const onRegister = async () => {
+        showLoading();
         const values = getValues();
         const data = await RegisterUseCase.run(values);
 
@@ -67,6 +70,7 @@ const RegisterViewModel = ({ RegisterUseCase }: Props) => {
                 : t('REGISTER_ERR_SUBTITLE_TEXT'),
         };
         toast.show(toastConfig);
+        hideLoading();
     };
 
     return {
