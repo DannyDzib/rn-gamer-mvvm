@@ -1,7 +1,10 @@
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { type ILoginUseCase } from '@application/useCases/auth/types';
+import {
+    type IGetUserUseCase,
+    type ILoginUseCase,
+} from '@application/useCases/auth/types';
 import { useLoading } from '@presentation/components/Loading/LoadingContext';
 import { z } from 'zod';
 import toast from 'react-native-toast-message';
@@ -13,9 +16,10 @@ interface IFormInputs {
 
 interface Props {
     LoginUseCase: ILoginUseCase;
+    GetUserUseCase: IGetUserUseCase;
 }
 
-const LoginViewModel = ({ LoginUseCase }: Props) => {
+const LoginViewModel = ({ LoginUseCase, GetUserUseCase }: Props) => {
     const { t } = useTranslation('common');
     const { showLoading, hideLoading } = useLoading();
 
@@ -52,6 +56,7 @@ const LoginViewModel = ({ LoginUseCase }: Props) => {
                 : t('LOGIN_ERR_SUBTITLE_TEXT'),
         };
         toast.show(toastConfig);
+
         hideLoading();
     };
 

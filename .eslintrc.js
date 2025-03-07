@@ -53,5 +53,7 @@ module.exports = {
         '@typescript-eslint/no-extraneous-class': 'off',
         '@typescript-eslint/strict-boolean-expressions': 'off',
         '@typescript-eslint/explicit-function-return-type': 'off',
+        '@typescript-eslint/return-await': 'off',
+        '@typescript-eslint/no-confusing-void-expression': 'off',
     },
 };

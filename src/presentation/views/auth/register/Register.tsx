@@ -1,7 +1,7 @@
 import React, { type FC, type ReactElement } from 'react';
 import { ScrollView, View } from 'react-native';
 import { type StackScreenProps } from '@react-navigation/stack';
-import { type RootStackParamList } from '@src/presentation/navigation/MainStackNavigator';
+import { type AuthStackParamList } from '@presentation/navigation/stacks/AuthStackNavigator';
 import ControlledTextInput from '@src/presentation/components/ControlledTextInput';
 import DefaultButton from '@src/presentation/components/DefaultButton/DefaultButton';
 import DI from '@src/di/ioc';
@@ -12,7 +12,7 @@ import PasswordIcon from '@assets/img/password.png';
 import { useTranslation } from 'react-i18next';
 import styles from './Styles';
 
-interface Props extends StackScreenProps<RootStackParamList, 'RegisterScreen'> {}
+interface Props extends StackScreenProps<AuthStackParamList, 'RegisterScreen'> {}
 
 const Register: FC<Props> = ({ navigation }: Props): ReactElement => {
     const { t } = useTranslation('register');

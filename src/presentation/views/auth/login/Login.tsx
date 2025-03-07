@@ -1,7 +1,7 @@
 import { type ReactElement } from 'react';
 import { ScrollView, View } from 'react-native';
 import DefaultButton from '@presentation/components/DefaultButton';
-import { type RootStackParamList } from '@presentation/navigation/MainStackNavigator';
+import { type AuthStackParamList } from '@presentation/navigation/stacks/AuthStackNavigator';
 import { type StackScreenProps } from '@react-navigation/stack';
 import styles from './Styles';
 import EmailIcon from '@assets/img/email.png';
@@ -12,13 +12,11 @@ import ControlledTextInput from '@src/presentation/components/ControlledTextInpu
 import { useTranslation } from 'react-i18next';
 import MyButton from '@src/presentation/components/MyButton';
 
-interface Props extends StackScreenProps<RootStackParamList, 'LoginScreen'> {}
+interface Props extends StackScreenProps<AuthStackParamList, 'LoginScreen'> {}
 
 const Login = ({ navigation }: Props): ReactElement => {
     const { t } = useTranslation('login');
-
     const { control, handleSubmit } = DI.resolve('LoginViewModel');
-
     return (
         <ScrollView contentContainerStyle={styles.scrollView}>
             <View style={styles.container}>

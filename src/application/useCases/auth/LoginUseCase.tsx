@@ -1,8 +1,8 @@
-import { type ILoginUseCase, type ILoginUseCaseProps } from './types';
+import { type ILoginUseCaseParams, type ILoginUseCase } from './types';
 
 export const LoginUseCase = ({
     AuthRepository,
-}: ILoginUseCaseProps): ILoginUseCase => ({
+}: ILoginUseCaseParams): ILoginUseCase => ({
     run: async (email: string, password: string) => {
         return await AuthRepository.login(email, password);
     },

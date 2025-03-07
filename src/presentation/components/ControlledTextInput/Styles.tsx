@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { MyColors } from '@src/presentation/theme/AppTheme';
+import { MyColors } from '@presentation/theme/AppTheme';
 
 const styles = StyleSheet.create({
     containerInput: {

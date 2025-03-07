@@ -1,23 +1,26 @@
-import React, { type ReactElement } from 'react';
+import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Login, Register } from '@presentation/views/auth';
+import { useAuth } from '@presentation/hooks/useAuth';
+import { AuthStackNavigator } from './stacks/AuthStackNavigator';
+import { AppStackNavigator } from './stacks/AppStackNavigator';
 
 export interface RootStackParamList extends Record<string, object | undefined> {
-    LoginScreen: undefined;
-    RegisterScreen: undefined;
+    AuthNavigation: undefined;
+    AppNavigation: undefined;
 }
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
-export function MainStackNavigator(): ReactElement {
+export function MainStackNavigator() {
+    const user = useAuth();
+
+    const { name, component } = user
+        ? { name: 'AppNavigation', component: AppStackNavigator }
+        : { name: 'AuthNavigation', component: AuthStackNavigator };
+
     return (
-        <Stack.Navigator
-            screenOptions={{
-                headerShown: false,
-            }}
-        >
-            <Stack.Screen name="LoginScreen" component={Login} />
-            <Stack.Screen name="RegisterScreen" component={Register} />
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+            <Stack.Screen name={name} component={component} />
         </Stack.Navigator>
     );
 }
