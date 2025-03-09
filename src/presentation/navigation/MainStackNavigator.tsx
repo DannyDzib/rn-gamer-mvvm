@@ -1,12 +1,18 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useAuth } from '@presentation/hooks/useAuth';
-import { AuthStackNavigator } from './stacks/AuthStackNavigator';
-import { AppStackNavigator } from './stacks/AppStackNavigator';
+import {
+    AuthStackNavigator,
+    type AuthStackParamList,
+} from './stacks/AuthStackNavigator';
+import {
+    AppStackNavigator,
+    type AppStackParamList,
+} from './stacks/AppStackNavigator';
 
 export interface RootStackParamList extends Record<string, object | undefined> {
-    AuthNavigation: undefined;
-    AppNavigation: undefined;
+    AuthNavigation: AuthStackParamList;
+    AppNavigation: AppStackParamList;
 }
 
 const Stack = createNativeStackNavigator<RootStackParamList>();

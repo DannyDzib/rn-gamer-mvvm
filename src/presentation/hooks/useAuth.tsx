@@ -8,6 +8,6 @@ export const useAuth = () => {
         const unsubscribe = auth().onAuthStateChanged(setUser);
         return () => unsubscribe();
     }, []);
-    console.log('useer ====>>', user);
+
     return user;
 };
