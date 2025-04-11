@@ -22,7 +22,7 @@ const RegisterViewModel = ({ RegisterUseCase }: Props) => {
 
     const schema = z
         .object({
-            userName: z.string().min(4, t('FORM_VALIDATION_FIELD_REQUIRED')),
+            username: z.string().min(4, t('FORM_VALIDATION_FIELD_REQUIRED')),
             email: z
                 .string()
                 .min(4, t('FORM_VALIDATION_FIELD_REQUIRED'))
@@ -35,21 +35,15 @@ const RegisterViewModel = ({ RegisterUseCase }: Props) => {
             path: ['confirmPassword'], // where is the error
         });
 
-    /* const defaultValues = {
-        userName: 'jonh doe',
+    const defaultValues = {
+        username: 'jonh doe',
         email: 'jonh@doe.com',
         password: 'qwerty1234',
         confirmPassword: 'qwerty1234',
-    }; */
-    const defaultValuesEmpty = {
-        username: '',
-        email: '',
-        password: '',
-        confirmPassword: '',
     };
 
     const { getValues, handleSubmit, control } = useForm<IFormInputs>({
-        defaultValues: defaultValuesEmpty,
+        defaultValues,
         resolver: zodResolver(schema),
         mode: 'onBlur',
     });
@@ -58,7 +52,6 @@ const RegisterViewModel = ({ RegisterUseCase }: Props) => {
         showLoading();
         const values = getValues();
         const data = await RegisterUseCase.run(values);
-
         const isSuccess = !data?.error;
         const toastConfig = {
             type: isSuccess ? 'success' : 'error',

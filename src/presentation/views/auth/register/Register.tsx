@@ -29,7 +29,7 @@ const Register: FC<Props> = ({ navigation }: Props): ReactElement => {
                 />
                 <View style={styles.formContainer}>
                     <ControlledTextInput
-                        name="userName"
+                        name="username"
                         control={control}
                         placeholder={t('FORM_PLACEHOLDER_USER_NAME')}
                         image={UserIcon}
